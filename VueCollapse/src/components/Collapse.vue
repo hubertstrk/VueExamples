@@ -12,11 +12,13 @@
             </div>
           </div>
         </div>
-        <div class="panel-collapse" :class="collapsed ? 'panel-collapsed' : 'panel-expanded'">
-          <div style="padding: 10px;">
-            <slot></slot>
+        <transition name="fade">
+          <div v-if="!collapsed">
+            <div style="padding: 10px;">
+              <slot></slot>
+            </div>
           </div>
-        </div>
+        </transition>
       </div>
     </div>
   </div>
@@ -41,5 +43,11 @@ export default {
 }
 .panel-heading {
   padding: 5px 5px !important;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0
 }
 </style>
