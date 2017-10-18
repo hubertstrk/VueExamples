@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <h1>Vue Table </h1>
-    <div style="width: 1200px;">
+    <div style="width: 600px;">
       <vue-table :tableColumns="tableColumns" :tableData="personData"></vue-table>
     </div>
   </div>
@@ -39,8 +39,8 @@ export default {
 
 <style scoped>
 .app {
-  /* font-family: 'Roboto', sans-serif; */
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-size: 11pt;
   padding: 20px;
 }
 </style>
