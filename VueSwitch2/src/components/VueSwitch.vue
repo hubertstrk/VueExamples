@@ -3,7 +3,8 @@
     <span v-if="text" class="text">{{text}}</span>
     <label v-bind:style="{'background-color': color}" :class="{ switch: true, 'switch-small': small }">
       <input v-model="checked" type="checkbox" />
-      <span :class="{ slider: true, 'slider-small': small, translate: checked, 'translate-small': checked && small }"></span>
+      <span :class="{ slider: true, 'slider-small': small, translate: checked, 'translate-small': checked && small }">
+      </span>
     </label>
   </span>
 </template>
@@ -70,6 +71,8 @@
   width: 60px;
   border-radius: 100px;
   background-color: #ccc;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
 }
 .switch-small {
   height: 20px;
@@ -81,7 +84,8 @@
   margin-left: 3px;
   border-radius: 50%;
   background-color: rgb(255, 255, 255);
-  transition: .2s;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
 }
 .slider-small {
   margin-left: 2px;
@@ -89,9 +93,13 @@
   width: 16px;
 }
 .translate {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
   transform: translateX(28px);
 }
 .translate-small {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
   transform: translateX(16px);
 }
 input {

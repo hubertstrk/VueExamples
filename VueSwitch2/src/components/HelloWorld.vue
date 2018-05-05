@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div>    
     <h1>{{ msg }}</h1>
     <vue-switch v-model="checked" text="Foo" success></vue-switch>
     <br>
