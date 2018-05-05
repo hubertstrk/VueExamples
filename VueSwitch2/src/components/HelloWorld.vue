@@ -1,11 +1,20 @@
 <template>
   <div>    
     <h1>{{ msg }}</h1>
-    <vue-switch v-model="checked" text="Foo" success></vue-switch>
+    <vue-switch v-model="checked1" />
     <br>
-    <vue-switch v-model="checked" text="Bar" small danger></vue-switch>
+    <vue-switch v-model="checked2" success />
     <br>
-    <vue-switch v-model="checked" text="Bar" small></vue-switch>
+    <vue-switch v-model="checked3" danger />
+    <br>
+    <vue-switch v-model="checked4" small />
+    <br>
+    <vue-switch v-model="checked5" small success />
+    <br>
+    <vue-switch text="asdfasdf" v-model="checked6" small danger>
+      
+    </vue-switch>
+
     <p>{{checked}}</p>
   </div>
 </template>
@@ -19,8 +28,15 @@ export default {
   },
   data () {
     return {
-      checked: true
+      checked1: true,
+      checked2: true,
+      checked3: false,
+      checked4: true,
+      checked5: false,
+      checked6: true
     }
+  },
+  mounted () {
   },
   components: {VueSwitch}
 }

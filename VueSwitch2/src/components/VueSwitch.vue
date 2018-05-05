@@ -3,9 +3,9 @@
     <span v-if="text" class="text">{{text}}</span>
     <label v-bind:style="{'background-color': color}" :class="{ switch: true, 'switch-small': small }">
       <input v-model="checked" type="checkbox" />
-      <span :class="{ slider: true, 'slider-small': small, translate: checked, 'translate-small': checked && small }">
-      </span>
+      <span :class="{ slider: true, 'slider-small': small, translate: checked, 'translate-small': checked && small }"></span>
     </label>
+    <slot></slot>
   </span>
 </template>
 
@@ -44,6 +44,9 @@
       checked (value) {
         this.$emit('input', value)
         this.setColor()
+      },
+      value (value) {
+        this.checked = value
       }
     },
     mounted () {
