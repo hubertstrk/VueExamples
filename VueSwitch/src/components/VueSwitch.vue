@@ -1,7 +1,7 @@
 <template>
   <div>
     <label class="switch">
-      <input type="checkbox" />
+      <input v-model="checked" type="checkbox" />
       <span class="slider round"></span>
     </label>
   </div>
@@ -9,13 +9,28 @@
 
 <script>
   export default {
-    
+    data () {
+      return {
+        checked: false
+      }
+    },
+    props: {
+      value: Boolean
+    },
+    watch: {
+      checked (value) {
+        this.$emit('input', value)
+      }
+    },
+    mounted () {
+      this.checked = this.value
+    }
   }
 </script>
 
 <style lang="css" scoped>
+/* https://www.w3schools.com/howto/howto_css_switch.asp */
 
-/* The switch - the box around the slider */
 .switch {
   position: relative;
   display: inline-block;
@@ -23,10 +38,8 @@
   height: 34px;
 }
 
-/* Hide default HTML checkbox */
 .switch input {display:none;}
 
-/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -65,7 +78,6 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }

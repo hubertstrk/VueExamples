@@ -1,7 +1,8 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <vue-switch></vue-switch>
+    <vue-switch v-model="checked"></vue-switch>
+    <p>{{checked}}</p>
   </div>
 </template>
 
@@ -12,6 +13,11 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data () {
+    return {
+      checked: true
+    }
   },
   components: {VueSwitch}
 }
@@ -33,6 +39,4 @@ li {
 a {
   color: #42b983;
 }
-
-
 </style>
