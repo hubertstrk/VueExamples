@@ -32,9 +32,6 @@
         else if (this.success) {
           this.color = '#35e87a'
         }
-        else if (this.neutral) {
-          this.color = '#2196F3'
-        }
         else if (this.danger) {
           this.color = '#ff0000'
         }
