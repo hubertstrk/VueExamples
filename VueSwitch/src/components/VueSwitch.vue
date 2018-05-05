@@ -1,29 +1,55 @@
 <template>
-  <div>
+  <span>
     <label class="switch">
       <input v-model="checked" type="checkbox" />
-      <span class="slider round"></span>
+      <span class="slider round" v-bind:style="{'background-color': color}"></span>
     </label>
-  </div>
+  </span>
 </template>
 
 <script>
   export default {
     data () {
       return {
-        checked: false
+        checked: false,
+        color: '#ccc'
       }
     },
     props: {
-      value: Boolean
+      value: Boolean,
+      success: Boolean,
+      neutral: Boolean,
+      danger: Boolean,
+      small: Boolean
+    },
+    methods: {
+      setColor () {
+        if (!this.checked) {
+          this.color = '#ccc'
+        }
+        else if (this.success) {
+          this.color = '#35e87a'
+        }
+        else if (this.neutral) {
+          this.color = '#2196F3'
+        }
+        else if (this.danger) {
+          this.color = '#ff0000'
+        }
+        else {
+          this.color = '#2196F3'
+        }
+      }
     },
     watch: {
       checked (value) {
         this.$emit('input', value)
+        this.setColor()
       }
     },
     mounted () {
       this.checked = this.value
+      this.setColor()
     }
   }
 </script>
@@ -64,13 +90,9 @@
   transition: .2s;
 }
 
-input:checked + .slider {
+/* input:checked + .slider {
   background-color: #2196F3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
+} */
 
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);

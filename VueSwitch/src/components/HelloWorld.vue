@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <vue-switch v-model="checked"></vue-switch>
+    <vue-switch v-model="checked" small success></vue-switch>
     <p>{{checked}}</p>
   </div>
 </template>
@@ -10,7 +10,6 @@
 import VueSwitch from './VueSwitch.vue'
 
 export default {
-  name: 'HelloWorld',
   props: {
     msg: String
   },
