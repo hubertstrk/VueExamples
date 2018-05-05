@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <vue-switch v-model="checked" small success></vue-switch>
+    <vue-switch v-model="checked" text="Foo / Bar" small success></vue-switch>
     <p>{{checked}}</p>
   </div>
 </template>

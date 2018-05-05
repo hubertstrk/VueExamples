@@ -1,5 +1,6 @@
 <template>
-  <span>
+  <span class="container">
+    <span v-if="text" class="text">{{text}}</span>
     <label class="switch">
       <input v-model="checked" type="checkbox" />
       <span class="slider round" v-bind:style="{'background-color': color}"></span>
@@ -20,7 +21,8 @@
       success: Boolean,
       neutral: Boolean,
       danger: Boolean,
-      small: Boolean
+      small: Boolean,
+      text: String
     },
     methods: {
       setColor () {
@@ -57,11 +59,20 @@
 <style lang="css" scoped>
 /* https://www.w3schools.com/howto/howto_css_switch.asp */
 
+.container {
+  display: flex; 
+  align-items: center;
+}
+
+.text {
+  margin-right: 10px;
+}
+
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 40px;
+  height: 24px;
 }
 
 .switch input {display:none;}
@@ -74,34 +85,30 @@
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .2s;
-  transition: .2s;
+  -webkit-transition: .6s;
+  transition: .6s;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
   background-color: white;
-  -webkit-transition: .2s;
-  transition: .2s;
+  -webkit-transition: .4s;
+  transition: .4s;
 }
 
-/* input:checked + .slider {
-  background-color: #2196F3;
-} */
-
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
 }
 
 .slider.round {
-  border-radius: 34px;
+  border-radius: 12px;
 }
 
 .slider.round:before {
