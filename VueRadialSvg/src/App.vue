@@ -1,17 +1,26 @@
 <template>
   <div id="app">
     <h3>Vue Radial SVG</h3>
-    <div class="widget" :style="{height: length + 'px', width: length + 'px'}">
-      <svg class="widget" :style="{height: length + 'px', width: length + 'px'}">
-        <path id="arc1" fill="none" stroke="#ffbb00" stroke-width="10px" 
-          :d="arc(55, 0, 215)" />
-        <path id="arc2" fill="none" stroke="#fb00ff" stroke-width="10px" 
-          :d="arc(45, 0, 190)" />
-        <path id="arc2" fill="none" stroke="#ffff00" stroke-width="10px" 
-          :d="arc(35, 0, 175)" />
+    <div class="widget" :style="{height: containerLength, width: containerLength}">
+      <svg class="svg" :style="{height: containerLength, width: containerLength}" shape-rendering="geometricPrecision">
+        <path id="arc1" fill="none" stroke="rgba(255,0,0,0.3)" :stroke-width="strokeWidth" 
+          :d="arc(40, 210, 360)" />
+        <path id="arc2" fill="none" stroke="blue" :stroke-width="strokeWidth"
+          :d="arc(32, 30, 190)" />
+        <path id="arc2" fill="none" stroke="magenta" :stroke-width="strokeWidth"
+          :d="arc(26, 30, 320)" />
       </svg>
-      <div class="geometrical">
-        <p>95.35 ha</p>
+      <div class="numberContainer geometrical" :style="{height: containerLength, width: containerLength}">
+        <div style="padding: 3px;">95.35 ha</div>
+        <div style="">official</div>
+      </div>
+      <div class="numberContainer cultivated" :style="{height: containerLength, width: containerLength}">
+        <div style="padding: 3px;">92.56 ha</div>
+        <div style="">cultivated</div>
+      </div>
+      <div class="numberContainer offical" :style="{height: containerLength, width: containerLength}">
+        <div style="padding: 3px;">89.13 ha</div>
+        <div style="">geometrical</div>
       </div>
     </div>
   </div>
@@ -21,8 +30,8 @@
 export default {
   data () {
     return {
-      length: 200,
-      strokeWidth: 15
+      length: 150,
+      strokeWidth: 8
     }
   },
   methods: {
@@ -47,6 +56,9 @@ export default {
   computed: {
     center () {
       return this.length / 2
+    },
+    containerLength () {
+      return this.length + 'px'
     }
   }
 }
@@ -55,16 +67,40 @@ export default {
 <style>
 .app {
   padding: 0px;
+  font-family: 'Segoe UI';
 }
 .widget {
-  border: 1px solid lightgray
+  position: relative;
+  border: 1px solid lightgray;
 }
 .svg {
   border: 1px solid lightgrey;
 }
-.geometrical {
+
+.numberContainer {
   position: absolute;
-  top: 100px;
-  left: 100px;
+  top: 0px; 
+  left: 0px;
+  display: flex;
+  flex-direction: column;
 }
+
+.geometrical {
+   justify-content: flex-end;
+}
+.cultivated {
+   justify-content: flex-end;
+}
+
+.cultivated div {
+  text-align: right;
+}
+
+.offical {
+   justify-content: flex-start;
+}
+.offical div {
+  text-align: right;
+}
+
 </style>
