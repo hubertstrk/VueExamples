@@ -71,7 +71,6 @@
   width: 60px;
   border-radius: 100px;
   background-color: #ccc;
-  -webkit-transition: all .2s linear;
   transition: all .2s linear;
 }
 .switch-small {
@@ -84,7 +83,6 @@
   margin-left: 3px;
   border-radius: 50%;
   background-color: rgb(255, 255, 255);
-  -webkit-transition: all .2s linear;
   transition: all .2s linear;
 }
 .slider-small {
@@ -93,13 +91,9 @@
   width: 16px;
 }
 .translate {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
   transform: translateX(28px);
 }
 .translate-small {
-  -webkit-transform: translateX(16px);
-  -ms-transform: translateX(16px);
   transform: translateX(16px);
 }
 input {
