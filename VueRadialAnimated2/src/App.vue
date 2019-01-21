@@ -1,11 +1,12 @@
 <template>
   <div id="app">
     <h3>Vue Radial SVG</h3>
+    <button @click="animate">Aminate</button>
     <div class="widget" :style="{height: containerLength, width: containerLength}">
-      <div class="el box"></div>
       <svg class="svg" :style="{height: containerLength, width: containerLength}" shape-rendering="geometricPrecision">
         <path id="arc1" fill="none" stroke="rgb(220, 220, 220)" :stroke-width="6" 
-          :d="arc(40, 30, 330)" stroke-linecap="round"        />
+          :d="path" stroke-linecap="round" 
+        />
       </svg>
     </div>
   </div>
@@ -18,7 +19,9 @@ import anime from 'animejs'
 export default {
   data () {
     return {
-      length: 150
+      length: 150,
+      path: '',
+      animation: null
     }
   },
   methods: {
@@ -38,6 +41,29 @@ export default {
         "A", radius, radius, 0, largeArcFlag, 0, end.x, end.y
       ].join(" ")
       return d  
+    },
+    animate () {
+      const random = this.random(330, 90)
+      this.path = this.arc(40, 30, random)
+
+      if (!this.animation) {
+        this.animation = anime({
+          targets: '.widget path',
+          strokeDashoffset: [anime.setDashoffset, 0],
+          easing: 'linear',
+          duration: 1500,
+          delay: function(el, i) { return i * 250 },
+          // direction: 'alternate',
+          loop: false,
+          autoplay: false
+        })
+        this.animation.play()
+      } else {
+        this.animation.restart()
+      }
+    },
+    random (max, min) {
+      return Math.floor(Math.random() * (max - min + 1) + min)
     }
   },
   computed: {
@@ -49,31 +75,12 @@ export default {
     }
   },
   mounted () {
-    console.info('start anmiation')
-    var path = anime.path('.widget path')
-
-    anime({
-      targets: '.widget .el',
-      translateX: path('x'),
-      translateY: path('y'),
-      rotate: path('angle'),
-      easing: 'linear',
-      duration: 2000,
-      loop: true
-    })
+    this.path = this.arc(40, 30, 330)
   }
 }
 </script>
 
 <style>
-.box {
-  height: 18px; 
-  width: 18px; 
-  position: absolute;
-  top: -9px; 
-  left: -9px;
-  background-color: yellow;
-}
 .app {
   padding: 0px;
   font-family: 'Segoe UI';
