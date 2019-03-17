@@ -13,13 +13,13 @@
   "dependencies": {
     "axios": "^0.18.0",
     "highlight.js": "^9.12.0",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.11",
     "marked": "^0.3.19",
     "remarkable": "^1.7.1"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.1",
-    "eslint": "^4.18.2",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.2",
     "eslint-config-standard": "^11.0.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^2.0.0",
@@ -28,7 +28,7 @@
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^4.3.0",
-    "quasar-cli": "^0.15.14"
+    "quasar-cli": "^0.17.24"
   },
   "engines": {
     "node": ">= 8.9.0",

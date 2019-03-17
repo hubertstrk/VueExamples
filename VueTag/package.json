@@ -11,7 +11,7 @@
   "dependencies": {
     "jquery": "^3.2.1",
     "selectize": "^0.12.4",
-    "spectre": "0.0.1",
+    "spectre.css": "^0.5.8",
     "vue": "^2.2.1"
   },
   "devDependencies": {
