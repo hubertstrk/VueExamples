@@ -9,7 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "selectize": "^0.12.4",
     "spectre.css": "^0.5.8",
     "vue": "^2.2.1"
