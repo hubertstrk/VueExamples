@@ -10,7 +10,7 @@
   "dependencies": {
     "@tweenjs/tween.js": "^18.3.1",
     "core-js": "^2.6.5",
-    "gsap": "^2.1.3",
+    "gsap": "^3.6.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {
